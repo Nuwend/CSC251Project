@@ -9,6 +9,9 @@ public class Project_Muhammad_Musa
    {
       ArrayList<Policy> policies = new ArrayList<>();
 
+      int smokerCount = 0;
+      int nonSmokerCount = 0;
+
       File file = new File("PolicyInformation.txt");
       Scanner input = new Scanner(file);
 
@@ -27,6 +30,15 @@ public class Project_Muhammad_Musa
                                     lastName, age, smokingStatus, height, weight);
 
          policies.add(policy);
+
+         if (policy.getSmokingStatus().equalsIgnoreCase("smoker"))
+         {
+            smokerCount++;
+         }
+         else
+         {
+            nonSmokerCount++;
+         }
       }
 
       input.close();
@@ -45,5 +57,8 @@ public class Project_Muhammad_Musa
          System.out.printf("Policy Price: $%.2f\n", policy.policyPrice());
          System.out.println();
       }
+
+      System.out.println("Number of policyholders that are smokers: " + smokerCount);
+      System.out.println("Number of policyholders that are non-smokers: " + nonSmokerCount);
    }
 }
