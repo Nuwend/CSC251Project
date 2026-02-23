@@ -84,4 +84,14 @@ public class Policy
 
       return price;
    }
+   
+   @Override
+   public String toString()
+   {
+      return "Policy Information:\n" +
+             "Policy Number: " + policyNumber + "\n" +
+             "Provider Name: " + providerName + "\n\n" +
+             policyHolder.toString() +
+             String.format("Policy Price: $%.2f\n", policyPrice());
+   }
 }
