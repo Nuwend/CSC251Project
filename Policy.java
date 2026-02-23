@@ -6,6 +6,8 @@ public class Policy
    private int policyNumber;
    private String providerName;
    private PolicyHolder policyHolder;
+   
+   private static int numberOfPolicies = 0;
 
    /**
     * No-argument constructor
@@ -15,6 +17,7 @@ public class Policy
       policyNumber = 0;
       providerName = "";
       policyHolder = new PolicyHolder();
+      numberOfPolicies++;
    }
 
    /**
@@ -26,6 +29,7 @@ public class Policy
       this.policyNumber = policyNumber;
       this.providerName = providerName;
       this.policyHolder = policyHolder;
+      numberOfPolicies++;
    }
 
    public int getPolicyNumber()
@@ -56,6 +60,10 @@ public class Policy
    public void setPolicyHolder(PolicyHolder policyHolder)
    {
       this.policyHolder = policyHolder;
+   }
+   public static int getNumberOfPolicies()
+   {
+      return numberOfPolicies;
    }
 
    /**
