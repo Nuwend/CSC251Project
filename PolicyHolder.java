@@ -108,4 +108,17 @@ public class PolicyHolder
    {
       return (weight * 703) / (height * height);
    }
+   
+   @Override
+   public String toString()
+   {
+      return "Policy Holder Information:\n" +
+             "First Name: " + firstName + "\n" +
+             "Last Name: " + lastName + "\n" +
+             "Age: " + age + "\n" +
+             "Smoking Status: " + smokingStatus + "\n" +
+             "Height: " + height + " inches\n" +
+             "Weight: " + weight + " pounds\n" +
+             String.format("BMI: %.2f\n", calculateBMI());
+   }
 }
