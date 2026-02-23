@@ -26,12 +26,19 @@ public class Project_Muhammad_Musa
          double height = Double.parseDouble(input.nextLine());
          double weight = Double.parseDouble(input.nextLine());
 
-         Policy policy = new Policy(policyNumber, providerName, firstName,
-                                    lastName, age, smokingStatus, height, weight);
+         
+         PolicyHolder holder = new PolicyHolder(
+               firstName, lastName,
+               age, smokingStatus,
+               height, weight
+         );
+
+         Policy policy = new Policy(policyNumber, providerName, holder);
 
          policies.add(policy);
 
-         if (policy.getSmokingStatus().equalsIgnoreCase("smoker"))
+         
+         if (holder.getSmokingStatus().equalsIgnoreCase("smoker"))
          {
             smokerCount++;
          }
@@ -43,22 +50,17 @@ public class Project_Muhammad_Musa
 
       input.close();
 
+      
       for (Policy policy : policies)
       {
-         System.out.println("Policy Number: " + policy.getPolicyNumber());
-         System.out.println("Provider Name: " + policy.getProviderName());
-         System.out.println("Policyholder's First Name: " + policy.getFirstName());
-         System.out.println("Policyholder's Last Name: " + policy.getLastName());
-         System.out.println("Policyholder's Age: " + policy.getAge());
-         System.out.println("Policyholder's Smoking Status: " + policy.getSmokingStatus());
-         System.out.println("Policyholder's Height: " + policy.getHeight() + " inches");
-         System.out.println("Policyholder's Weight: " + policy.getWeight() + " pounds");
-         System.out.printf("Policyholder's BMI: %.2f\n", policy.calculateBMI());
-         System.out.printf("Policy Price: $%.2f\n", policy.policyPrice());
-         System.out.println();
+         System.out.println(policy);
       }
 
+      
+      System.out.println("Number of Policy objects created: " + Policy.getNumberOfPolicies());
+
       System.out.println("Number of policyholders that are smokers: " + smokerCount);
+
       System.out.println("Number of policyholders that are non-smokers: " + nonSmokerCount);
    }
 }
